@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script>try{var t=localStorage.getItem('creet-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<title>Portal Request View Plus – show customers who is on it and when it will be done</title>
+<meta name="description" content="A Forge app for Jira Service Management Cloud that shows customers, on their request page, the assignee, how the request is tracking against its service targets, linked requests and the read-only fields you choose.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://creet.in/portal-request-view/">
+<meta property="og:title" content="Portal Request View Plus">
+<meta property="og:description" content="Show Jira Service Management customers who is on their request and when it will be done.">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Courier+Prime&display=swap">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="prv.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="wrap">
+  <div class="head-row">
+    <div class="brand">
+      <a class="mark" href="../"><img src="../icon.svg" alt="" width="30" height="30">Creet</a>
+      <span class="sep" aria-hidden="true">/</span>
+      <a class="product" href="./"><img src="icon.svg" alt="" width="24" height="24">Portal Request View Plus</a>
+    </div>
+    <nav class="site-nav" aria-label="Main">
+      <a href="./" aria-current="page">Overview</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <button class="theme-toggle" type="button" aria-label="Switch colour theme"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5V5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="product-hero wrap">
+    <div>
+      <p class="kind"><span class="sw sw-lilac"></span>Forge app for Jira Service Management Cloud · in development</p>
+      <h1 class="ruled">Customers see who is on it, and when it will be done.</h1>
+      <p class="lead">Portal Request View Plus adds a panel to each request in your Jira Service Management help centre: the assignee's name, how the request is tracking against its service targets, linked requests, and the read-only fields you choose. Customers get their answer on the page instead of asking "any update?".</p>
+      <p class="actions">
+        <a class="btn btn-primary" href="mailto:support@creet.in?subject=Portal%20Request%20View%20Plus%20early%20access">Ask for early access</a>
+        <a class="btn" href="#data">How it keeps data safe</a>
+      </p>
+    </div>
+
+    <figure>
+      <div class="panel-frame" aria-label="Example of the customer panel">
+        <div class="panel-bar"><b>Request details</b> on a customer's request page</div>
+        <div class="panel-body">
+          <div class="p-summary">
+            <div><span class="p-label">Assigned to</span><span class="p-value">Priya S.</span></div>
+            <div><span class="p-label">Service targets</span><span class="p-lozenge p-ok">On track</span></div>
+          </div>
+          <p class="p-head">Service targets</p>
+          <div class="p-card">
+            <div class="p-row"><b>Resolution target</b><span class="p-lozenge p-ok">On track</span></div>
+            <div class="p-bar"><span style="width:38%"></span></div>
+            <div class="p-row p-sub"><span>4h 58m left · 38% of target time used</span><span>Due 24 Oct, 18:30</span></div>
+          </div>
+          <div class="p-card">
+            <div class="p-row"><span><span class="p-sub">Is blocked by · ITSUP-212</span><br><b>VPN gateway maintenance</b></span><span class="p-lozenge p-soon">In progress</span></div>
+          </div>
+          <p class="p-head">About your request</p>
+          <dl class="p-fields">
+            <dt>Urgency</dt><dd>High</dd>
+            <dt>Needed by</dt><dd>30 Oct 2026</dd>
+          </dl>
+        </div>
+      </div>
+      <figcaption>Every row is optional, chosen per request type by your Jira administrator. Names and headings are yours to set.</figcaption>
+    </figure>
+  </section>
+
+  <section id="features" class="section wrap">
+    <div class="section-head">
+      <h2>What customers can see</h2>
+      <p>Only what you switch on, only on requests they can already open.</p>
+    </div>
+    <dl class="spec">
+      <div><dt>Who is working on it</dt><dd>The assignee's display name, or "Not assigned yet". Never an email address or account ID.</dd></div>
+      <div><dt>Service targets</dt><dd>Each SLA as On track, Due soon, Overdue, On hold, Met or Missed, with time left, a progress bar and the due time. Rename internal SLA names to ones customers understand, and choose which SLAs appear.</dd></div>
+      <div><dt>Linked requests</dt><dd>Key, summary, status and how each one relates, for example "is blocked by". Limited to the same service project unless you choose otherwise.</dd></div>
+      <div><dt>Read-only fields</dt><dd>Any field you pick, shown as text, with your own names, grouped under your own headings, in your order. Comments, worklogs, attachments, time tracking and similar internal fields can never be shown.</dd></div>
+    </dl>
+  </section>
+
+  <section id="setup" class="section wrap">
+    <div class="section-head">
+      <h2>Set up</h2>
+      <p>For Jira administrators, in Jira settings under Apps.</p>
+    </div>
+    <ol class="steps">
+      <li><h3>Pick a request type</h3><p>Choose the service project and request type. Nothing is shown anywhere until you switch a request type on.</p></li>
+      <li><h3>Choose what shows</h3><p>Switch on the assignee, service targets, linked requests and fields, and set the names customers see.</p></li>
+      <li><h3>Copy it across</h3><p>Use the settings for one request type, or apply them to every request type in the project at once.</p></li>
+    </ol>
+  </section>
+
+  <section id="data" class="section wrap">
+    <div class="section-head">
+      <h2>Your data stays in Atlassian</h2>
+      <p>The App runs on Atlassian's Forge platform, declares no outside network access, and stores only your settings, never your requests or anyone's personal data. Every value passes an allow-list you control and a deny list you cannot override. See the <a href="privacy.html">privacy policy</a> and the <a href="terms.html">terms</a>.</p>
+    </div>
+    <p class="note">Portal Request View Plus is an independent product by Creet. It is not affiliated with or endorsed by Atlassian. Atlassian, Jira, Jira Service Management and Forge are trademarks of Atlassian. Questions and early access: <a href="mailto:support@creet.in">support@creet.in</a>.</p>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div class="foot-row">
+    <p>© 2026 Portal Request View Plus, made by <a href="../">Creet</a></p>
+    <nav aria-label="Legal">
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="mailto:support@creet.in">support@creet.in</a>
+    </nav>
+  </div>
+</footer>
+<script src="../theme.js"></script>
+</body>
+</html>
