@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script>try{var t=localStorage.getItem('creet-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<title>Help – Portal Request View Plus</title>
+<meta name="description" content="Setup guide for Portal Request View Plus: choose what customers see per request type, limit it to customer organizations, supported field types, and troubleshooting.">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Courier+Prime&display=swap">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="prv.css">
+<style>
+  .legal table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: .95rem; }
+  .legal th, .legal td { text-align: left; vertical-align: top; padding: .5rem .6rem; border-bottom: 1px solid currentColor; border-bottom-color: color-mix(in srgb, currentColor 18%, transparent); }
+  .legal th { font-weight: 700; }
+  .legal .table-scroll { overflow-x: auto; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="wrap">
+  <div class="head-row">
+    <div class="brand">
+      <a class="mark" href="../"><img src="../icon.svg" alt="" width="30" height="30">Creet</a>
+      <span class="sep" aria-hidden="true">/</span>
+      <a class="product" href="./"><img src="icon.svg" alt="" width="24" height="24">Portal Request View Plus</a>
+    </div>
+    <nav class="site-nav" aria-label="Main">
+      <a href="./">Overview</a>
+      <a href="help.html" aria-current="page">Help</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <button class="theme-toggle" type="button" aria-label="Switch colour theme"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5V5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+<article class="legal">
+
+  <h1>Help</h1>
+  <p class="updated">Setup guide for Jira administrators. Last updated: 24 October 2026.</p>
+
+  <p class="notice"><strong>In short:</strong> open Jira settings, then Apps, then <em>Portal Request View Plus</em>. Pick a service project and a request type, switch on what customers should see, and save. Nothing is shown anywhere until you switch a request type on.</p>
+
+  <h2 id="setup">Set up in five minutes</h2>
+  <ol>
+    <li><strong>Open the settings page.</strong> In Jira, select the cog, then <em>Apps</em>, then <em>Portal Request View Plus</em> in the left sidebar. You need to be a Jira administrator.</li>
+    <li><strong>Pick a request type.</strong> Choose the service project, then the request type. Settings are kept per request type.</li>
+    <li><strong>Switch the panel on.</strong> Turn on <em>Show the panel on this request type</em>, then the parts you want: assignee, service targets, linked requests and extra fields.</li>
+    <li><strong>Save.</strong> Customers see the change within about five minutes.</li>
+    <li><strong>Optional: copy it across.</strong> <em>Apply to all request types</em> writes the same settings to every request type in the project. Request types you add later start switched off.</li>
+  </ol>
+
+  <h2 id="parts">What each part shows</h2>
+  <ul>
+    <li><strong>Who is working on it:</strong> the assignee's display name, or "Not assigned yet". Never an email address or account ID.</li>
+    <li><strong>Service targets:</strong> each SLA as On track, Due soon, Overdue, On hold, Met or Missed, with time left, an optional progress bar and due time, and an optional goal. You can show only some SLAs and rename them, for example "Time to resolution - P1 internal = Resolution target".</li>
+    <li><strong>Linked requests:</strong> key, summary, status and the relationship, for example "is blocked by". By default only issues in the same service project are shown. Turning that off shows linked issues from other projects, such as a development board, so use it only if customers should see them.</li>
+    <li><strong>Extra fields:</strong> read-only fields you pick, with your own names, grouped under your own headings, in your order.</li>
+  </ul>
+
+  <h2 id="audience">Show it to some customers only</h2>
+  <p>Every part has an <em>Only for these organizations</em> list, and the panel as a whole has <em>Who sees the panel</em>. These use your Jira Service Management customer organizations.</p>
+  <ul>
+    <li><strong>Empty means everyone.</strong> With no organization selected, everyone who can open the request sees it.</li>
+    <li><strong>Pick organizations to narrow it.</strong> A customer sees that part only if they belong to at least one of the selected organizations. Example: show service targets only to your premium-plan organization, or pilot the whole panel with one friendly customer first.</li>
+    <li><strong>Agents always see everything,</strong> so you can preview the customer view from the help centre.</li>
+    <li><strong>If membership cannot be checked, restricted parts are hidden.</strong> Parts without a restriction still show.</li>
+  </ul>
+  <p>Organizations are managed in your service project under <em>Customers</em>. After an upgrade that added this feature, a site administrator must accept the app's new permission (reading customer organizations) under <em>Apps, Manage apps</em> before the lists load.</p>
+
+  <h2 id="fields">Which fields customers can see</h2>
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>Field type</th><th>Shown as</th></tr></thead>
+    <tbody>
+      <tr><td>Text, paragraph and rich text</td><td>Plain text, up to 500 characters</td></tr>
+      <tr><td>Number</td><td>The number</td></tr>
+      <tr><td>Date, date and time</td><td>The date as Jira stores it</td></tr>
+      <tr><td>Single select, radio buttons, checkboxes, multi-select</td><td>The chosen option names</td></tr>
+      <tr><td>Cascading select</td><td>"Parent / Child"</td></tr>
+      <tr><td>User picker (single or multiple)</td><td>Display names only</td></tr>
+      <tr><td>Version, component, priority, status, labels, group</td><td>Their names</td></tr>
+      <tr><td>Assets objects and other app-specific fields</td><td>Nothing. The picker marks these "May show blank".</td></tr>
+      <tr><td>SLA fields</td><td>Use the <em>Service targets</em> switch instead</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p><strong>Never shown, whatever the settings:</strong> comments, worklogs, time tracking, attachments, reporter, creator, watchers, votes, security level, sub-tasks and parent. These are blocked in the app's code, not just hidden in the settings page.</p>
+
+  <h2 id="troubleshooting">Troubleshooting</h2>
+  <ul>
+    <li><strong>The panel does not appear at all.</strong> Check that the request type is switched on, that <em>Who sees the panel</em> includes the customer's organization or is empty, and that the customer can open the request. Logged-out visitors never see the panel.</li>
+    <li><strong>A "Request details" heading appears with nothing under it.</strong> Jira draws the heading for every request type once the app is installed. Switch the panel on for all request types (use <em>Apply to all request types</em>) so every request shows content.</li>
+    <li><strong>The panel is empty on every request type, even when switched on.</strong> The app's own user may not be able to read the project. In the project's permission scheme, <em>Browse Projects</em> must include the project role <em>atlassian-addons-project-access</em>. Default schemes include it.</li>
+    <li><strong>A field shows nothing.</strong> It is empty on that request, or it is a type marked "May show blank" in the picker.</li>
+    <li><strong>The organization lists say they could not be loaded.</strong> Accept the app's new permission under <em>Apps, Manage apps</em>, then reload the settings page.</li>
+    <li><strong>The settings page says the licence is not active.</strong> Customers do not see the panel until the subscription is active again. Your settings are kept.</li>
+  </ul>
+
+  <h2 id="contact">Support</h2>
+  <p>Email <a href="mailto:support@creet.in">support@creet.in</a> with your site URL and what you expected to see. Please do not send customer request contents unless we ask for them. How the app handles data is described in the <a href="privacy.html">privacy policy</a>.</p>
+
+</article>
+</main>
+
+<footer class="wrap">
+  <div class="foot-row">
+    <p>© 2026 Portal Request View Plus, made by <a href="../">Creet</a></p>
+    <nav aria-label="Legal">
+      <a href="help.html">Help</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="mailto:support@creet.in">support@creet.in</a>
+    </nav>
+  </div>
+</footer>
+<script src="../theme.js"></script>
+</body>
+</html>

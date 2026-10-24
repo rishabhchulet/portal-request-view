@@ -24,6 +24,7 @@
     </div>
     <nav class="site-nav" aria-label="Main">
       <a href="./">Overview</a>
+      <a href="help.html">Help</a>
       <a href="terms.html">Terms</a>
       <a href="privacy.html" aria-current="page">Privacy</a>
       <button class="theme-toggle" type="button" aria-label="Switch colour theme"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5V5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
@@ -48,8 +49,8 @@
   <h2>What the App reads</h2>
   <p>The App runs on Atlassian's Forge platform and reads data through Atlassian's own APIs, as the App, at the moment a panel or the admin page is opened:</p>
   <ul>
-    <li>For a request page: the request's reporter, participants and request type (to check the viewer may see it), its assignee, its issue links, its service targets, and only the fields the administrator selected for that request type.</li>
-    <li>For the admin page, used only by Jira administrators: the site's service projects, request types, field names and types, and issue link types, and whether the current user is a Jira administrator.</li>
+    <li>For a request page: the request's reporter, participants and request type (to check the viewer may see it), its assignee, its issue links, its service targets, and only the fields the administrator selected for that request type. If the administrator limited the panel or part of it to certain customer organizations, the App also reads which organizations the viewer belongs to, uses that only to decide what to show, and does not keep it.</li>
+    <li>For the admin page, used only by Jira administrators: the site's service projects, request types, field names and types, issue link types and customer organization names, and whether the current user is a Jira administrator.</li>
   </ul>
   <p>The App never reads comments, worklogs, attachments, time tracking, watchers, votes or security levels, and an administrator cannot switch them on.</p>
 
@@ -57,7 +58,7 @@
   <p>Only what the administrator switched on, and only on requests they can already open. People appear by display name only: the App never shows email addresses, account IDs or avatars, and never sends them to the browser.</p>
 
   <h2>What the App stores</h2>
-  <p>Only the administrator's configuration: for each request type, which items are switched on, which fields and link types are selected, and the labels and headings the administrator typed. It is kept in the App's storage on Atlassian's Forge platform for the Customer's site. It contains no personal data and no request content. The App does not copy, cache or keep requests, comments, names or field values.</p>
+  <p>Only the administrator's configuration: for each request type, which items are switched on, which fields and link types are selected, the labels and headings the administrator typed, and the ID numbers of any customer organizations the administrator chose as an audience. It is kept in the App's storage on Atlassian's Forge platform for the Customer's site. It contains no personal data and no request content. The App does not copy, cache or keep requests, comments, names or field values.</p>
 
   <h2>Logs</h2>
   <p>To diagnose problems, the App writes short technical log entries to Atlassian's Forge logging service: the event name, the request key and request type, the kind of viewer (for example "customer" or "agent") and whether the viewer check passed, which data source answered, counts of items shown, and timings. Logs never contain field values, summaries, names, email addresses or account IDs. Atlassian keeps these logs under its Forge platform's retention rules; the Developer can read them only for the purpose of support and fixing errors.</p>
@@ -92,6 +93,7 @@
   <div class="foot-row">
     <p>© 2026 Portal Request View Plus, made by <a href="../">Creet</a></p>
     <nav aria-label="Legal">
+      <a href="help.html">Help</a>
       <a href="terms.html">Terms</a>
       <a href="privacy.html">Privacy</a>
       <a href="mailto:support@creet.in">support@creet.in</a>
