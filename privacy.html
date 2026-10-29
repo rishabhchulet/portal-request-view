@@ -36,7 +36,7 @@
 <article class="legal">
 
   <h1>Privacy</h1>
-  <p class="updated">Last updated: 24 October 2026. Applies to Portal Request View Plus before and after its Atlassian Marketplace listing.</p>
+  <p class="updated">Last updated: 30 October 2026. Applies to Portal Request View Plus before and after its Atlassian Marketplace listing.</p>
 
   <p class="notice"><strong>In short:</strong> Portal Request View Plus runs entirely on Atlassian's Forge platform. It reads request details from your Jira Service Management site only to show the ones your administrator switched on, to people who can already open that request. It stores no personal data, keeps no copy of your requests, and sends nothing outside Atlassian.</p>
 
@@ -47,9 +47,9 @@
   <p>It adds a panel to request pages in the Customer's help centre. A Jira administrator chooses, per request type, which of these the panel shows: the assignee's display name, the request's service targets (SLAs), linked requests, and read-only fields the administrator selects. Nothing is shown for a request type until an administrator switches it on.</p>
 
   <h2>What the App reads</h2>
-  <p>The App runs on Atlassian's Forge platform and reads data through Atlassian's own APIs, as the App, at the moment a panel or the admin page is opened:</p>
+  <p>The App runs on Atlassian's Forge platform and reads data through Atlassian's own APIs at the moment a panel or the admin page is opened:</p>
   <ul>
-    <li>For a request page: the request's reporter, participants and request type (to check the viewer may see it), its assignee, its issue links, its service targets, and only the fields the administrator selected for that request type. If the administrator limited the panel or part of it to certain customer organizations, the App also reads which organizations the viewer belongs to, uses that only to decide what to show, and does not keep it.</li>
+    <li>For a request page: first, acting as the viewer, the App asks Jira whether the viewer may see the request, and asks Jira Service Management for the request as the viewer sees it (its key, reporter and request type). If either answer is no, the App reads nothing else and shows nothing. Only then, as the App, it reads the request's assignee, its issue links, its service targets, and only the fields the administrator selected for that request type. If the administrator limited the panel or part of it to certain customer organizations, the App also reads which organizations the viewer belongs to, uses that only to decide what to show, and does not keep it.</li>
     <li>For the admin page, used only by Jira administrators: the site's service projects, request types, field names and types, issue link types and customer organization names, and whether the current user is a Jira administrator.</li>
   </ul>
   <p>The App never reads comments, worklogs, attachments, time tracking, watchers, votes or security levels, and an administrator cannot switch them on.</p>
