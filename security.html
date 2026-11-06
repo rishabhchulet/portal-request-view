@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script>try{var t=localStorage.getItem('creet-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<title>Security – Portal Request View Plus</title>
+<meta name="description" content="Security policy for Portal Request View Plus, a Forge app for Jira Service Management Cloud: hosting, access controls, data protection, testing, vulnerability reporting, incident response and security contact.">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Courier+Prime&display=swap">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="prv.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="wrap">
+  <div class="head-row">
+    <div class="brand">
+      <a class="mark" href="../"><img src="../icon.svg" alt="" width="30" height="30">Creet</a>
+      <span class="sep" aria-hidden="true">/</span>
+      <a class="product" href="./"><img src="icon.svg" alt="" width="24" height="24">Portal Request View Plus</a>
+    </div>
+    <nav class="site-nav" aria-label="Main">
+      <a href="./">Overview</a>
+      <a href="help.html">Help</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="security.html" aria-current="page">Security</a>
+      <button class="theme-toggle" type="button" aria-label="Switch colour theme"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5V5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+<article class="legal">
+
+  <h1>Security</h1>
+  <p class="updated">Last updated: 6 November 2026. Applies to Portal Request View Plus for Jira Service Management Cloud.</p>
+
+  <p class="notice"><strong>In short:</strong> Portal Request View Plus runs only on Atlassian's Forge platform. It has no servers, database or network access of its own. Before it reads anything, it checks with Jira, as the viewer, that the viewer may open the request. It shows only what a Jira administrator switched on. Report a security problem to <a href="mailto:support@creet.in?subject=Security">support@creet.in</a>.</p>
+
+  <h2>Scope</h2>
+  <p>This policy covers Portal Request View Plus ("the App"), a Forge app made by Rishabh Chulet, an independent developer in India trading as Creet ("we", "us"). How the App handles personal data is described in the <a href="privacy.html">privacy policy</a>.</p>
+
+  <h2>Hosting</h2>
+  <ul>
+    <li>The App is hosted on Atlassian's Forge platform. Its code runs on Atlassian's infrastructure, and its settings are kept in Forge storage for each Jira site where it is installed. Atlassian runs, patches and secures that infrastructure under its own security program. See <a href="https://www.atlassian.com/trust/security" rel="noopener">Atlassian's Trust Center</a>.</li>
+    <li>We run no servers, databases, file stores or third-party services for the App.</li>
+    <li>The App declares no external network access, remote backends or web triggers. Forge therefore lets it call only Atlassian's own APIs, so it cannot send data anywhere else.</li>
+    <li>Each installation's storage is separate, and one customer's site cannot read another's.</li>
+  </ul>
+
+  <h2>Access controls</h2>
+  <p><strong>Inside the App.</strong></p>
+  <ul>
+    <li><strong>The viewer is checked first.</strong> Before the App reads anything with its own permissions, it makes two calls as the viewer. Jira confirms the viewer may browse the request, and Jira Service Management returns the request as the viewer would see it. If either check fails, the App reads nothing else and shows nothing.</li>
+    <li><strong>Trusted identity only.</strong> The request and the viewer's identity come from Atlassian's signed context, never from the browser. The portal panel sends no parameters the server would trust.</li>
+    <li><strong>Off by default.</strong> Nothing is shown for a request type until a Jira administrator switches items on. Each item has its own switch.</li>
+    <li><strong>Blocked fields.</strong> Comments, worklogs, attachments, time tracking, watchers, votes, security levels and a few other fields are on a fixed deny list. An administrator cannot switch them on.</li>
+    <li><strong>Admin functions are separate.</strong> The settings page runs in a separate function that the portal panel cannot call. Every change checks with Jira that the person making it is a Jira administrator.</li>
+    <li><strong>Least privilege.</strong> The App asks only for the read scopes it uses (<code>read:jira-work</code>, <code>read:servicedesk-request</code>, <code>read:organization:jira-service-management</code>) plus <code>storage:app</code> for its settings. It never asks for write access to Jira data.</li>
+  </ul>
+  <p><strong>Our own access.</strong></p>
+  <ul>
+    <li>Only the developer can deploy the App, change its source code or read its logs. No one else has these rights.</li>
+    <li>We have no access to customers' Jira sites or data. We can read the App's logs from a customer's site only if that site's administrator allows log sharing in Atlassian administration.</li>
+    <li>The accounts that can deploy or change the App use unique passwords kept in a password manager. Development machines run endpoint protection and automatic security updates.</li>
+  </ul>
+
+  <h2>Data protection</h2>
+  <ul>
+    <li><strong>Little is stored.</strong> The App stores only the administrator's settings and keeps no copy of requests, names or field values. The <a href="privacy.html">privacy policy</a> lists exactly what it reads and stores.</li>
+    <li><strong>Encryption.</strong> All traffic between the App, Atlassian's APIs and the browser goes over Atlassian's HTTPS connections. Forge storage is encrypted at rest and backed up by Atlassian.</li>
+    <li><strong>Least data shown.</strong> People appear by display name only. Email addresses, account IDs and avatars never reach the browser. Service targets are reduced to their state and remaining time.</li>
+    <li><strong>Caps.</strong> List lengths and text lengths are limited, so the panel cannot be used to export data in bulk.</li>
+    <li><strong>Checked input.</strong> Settings are checked when they are saved and again when they are loaded. Unknown keys are dropped, field IDs must match Jira's format, and labels are stored as plain text.</li>
+    <li><strong>No secrets.</strong> The App holds no API keys, tokens or passwords. Atlassian's platform handles authentication.</li>
+    <li><strong>Safe logs.</strong> Logs record technical events only and never contain field values, names, email addresses or account IDs.</li>
+  </ul>
+
+  <h2>Security testing</h2>
+  <ul>
+    <li>Every release runs about 100 automated tests. They cover the viewer check and the order of calls, the allow-list and deny-list, organization rules that fail closed, and checks that no account ID or email address can reach the output.</li>
+    <li>Every deployment first passes <code>forge lint</code>, which checks the manifest and permissions.</li>
+    <li>Dependencies are checked for known vulnerabilities with <code>npm audit</code> before each release. Vulnerable packages are updated or overridden before the release goes out.</li>
+    <li>Every version submitted to the Atlassian Marketplace is also scanned by Atlassian's automated security tooling.</li>
+  </ul>
+
+  <h2>Reporting a vulnerability</h2>
+  <p>If you think you have found a security problem in the App, email <a href="mailto:support@creet.in?subject=Security">support@creet.in</a> with "Security" in the subject. Include the steps to reproduce it and what an attacker could gain. Please do not include your customers' request contents, and give us a reasonable time to fix the problem before you disclose it publicly.</p>
+  <ul>
+    <li>We reply within 2 working days (Monday to Friday, India Standard Time).</li>
+    <li>We rate each confirmed issue by its CVSS score and keep the reporter informed until it is fixed.</li>
+    <li>We will not take action against anyone who reports in good faith, stays within their own Jira site and does not access other people's data.</li>
+    <li>You can also report through Atlassian, which records Marketplace app vulnerabilities in its Atlassian Marketplace Security (AMS) project.</li>
+  </ul>
+
+  <h2>How fast we fix vulnerabilities</h2>
+  <p>We follow Atlassian's <a href="https://developer.atlassian.com/platform/marketplace/security-bugfix-policy/" rel="noopener">Marketplace security bug fix policy</a> for cloud apps. Each period starts when the issue is reported or confirmed:</p>
+  <ul>
+    <li>Critical (CVSS 9.0 or more): within 10 days</li>
+    <li>High (7.0 to 8.9): within 4 weeks</li>
+    <li>Medium (4.0 to 6.9): within 12 weeks</li>
+    <li>Low (below 4.0): within 25 weeks</li>
+  </ul>
+  <p>Fixes are deployed through Forge to every installation. Customers do not need to do anything unless a fix needs new permissions, in which case Jira asks an administrator to accept them.</p>
+
+  <h2>Incident response</h2>
+  <p>A security incident is any actual or suspected unauthorised access to, or use, disclosure, change or loss of, customer data through the App, or any compromise of the App or of the accounts that can deploy it. If one happens, we:</p>
+  <ol>
+    <li><strong>Investigate</strong> straight away. We work out what happened, which sites and data are affected, and whether it is still going on.</li>
+    <li><strong>Contain it.</strong> We deploy a fix, switch off the affected feature or ask Atlassian to delist the App, and change the passwords of any exposed accounts.</li>
+    <li><strong>Notify Atlassian</strong> within 24 hours through Atlassian's developer support portal, and keep Atlassian updated until the incident is resolved.</li>
+    <li><strong>Notify affected customers</strong> within 72 hours where possible. We tell them what happened, what data was involved, what we have done and what they should do. We also meet any notification duty the law places on us.</li>
+    <li><strong>Fix the cause and review.</strong> We find the root cause, fix it, add tests so it cannot happen again, and write down what we learned.</li>
+  </ol>
+
+  <h2>Security contact</h2>
+  <p>Rishabh Chulet (Creet)<br>
+  Madhya Pradesh, India<br>
+  Email: <a href="mailto:support@creet.in?subject=Security">support@creet.in</a> (put "Security" in the subject)</p>
+
+  <h2>Changes</h2>
+  <p>We will update this page, with a new date, whenever the way the App is hosted, protected or supported changes.</p>
+
+</article>
+</main>
+
+<footer class="wrap">
+  <div class="foot-row">
+    <p>© 2026 Portal Request View Plus, made by <a href="../">Creet</a></p>
+    <nav aria-label="Legal">
+      <a href="help.html">Help</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="security.html">Security</a>
+      <a href="mailto:support@creet.in">support@creet.in</a>
+    </nav>
+  </div>
+</footer>
+<script src="../theme.js"></script>
+</body>
+</html>

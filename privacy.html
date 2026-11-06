@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <script>try{var t=localStorage.getItem('creet-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 <title>Privacy – Portal Request View Plus</title>
-<meta name="description" content="Privacy policy for Portal Request View Plus, a Forge app for Jira Service Management Cloud. It stores no personal data and sends nothing outside Atlassian.">
+<meta name="description" content="Privacy policy for Portal Request View Plus, a Forge app for Jira Service Management Cloud: what personal data it reads and why, what it stores and logs, retention, sharing, your rights and a privacy contact.">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +27,7 @@
       <a href="help.html">Help</a>
       <a href="terms.html">Terms</a>
       <a href="privacy.html" aria-current="page">Privacy</a>
+      <a href="security.html">Security</a>
       <button class="theme-toggle" type="button" aria-label="Switch colour theme"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5V5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
     </nav>
   </div>
@@ -36,55 +37,109 @@
 <article class="legal">
 
   <h1>Privacy</h1>
-  <p class="updated">Last updated: 30 October 2026. Applies to Portal Request View Plus before and after its Atlassian Marketplace listing.</p>
+  <p class="updated">Last updated: 6 November 2026. Applies to Portal Request View Plus for Jira Service Management Cloud.</p>
 
-  <p class="notice"><strong>In short:</strong> Portal Request View Plus runs entirely on Atlassian's Forge platform. It reads request details from your Jira Service Management site only to show the ones your administrator switched on, to people who can already open that request. It stores no personal data, keeps no copy of your requests, and sends nothing outside Atlassian.</p>
+  <p class="notice"><strong>In short:</strong> Portal Request View Plus runs only on Atlassian's Forge platform. When a request page opens, it reads some personal data through Atlassian's APIs, such as the viewer's account ID and the assignee's name, to decide what to show. It shows only what the administrator switched on, and keeps none of that data afterwards. It stores only the administrator's settings and writes short technical logs at Atlassian. If you email us for support, we receive what you send. Nothing goes to any other service, and nothing is sold.</p>
 
-  <h2>Who we are</h2>
-  <p>Portal Request View Plus ("the App") is a Forge app for Jira Service Management Cloud. It is made by Rishabh Chulet, an independent developer in India trading as Creet ("the Developer", "we", "us"). The organisation that installs the App on its Atlassian site is "the Customer"; the people who use the Customer's help centre are "portal users".</p>
+  <h2>Who we are and who is responsible</h2>
+  <p>Portal Request View Plus ("the App") is a Forge app for Jira Service Management Cloud. It is made by Rishabh Chulet, an independent developer (sole proprietor) in Madhya Pradesh, India, trading as Creet ("the Developer", "we", "us"). We are responsible for the App and for this policy.</p>
+  <p>The organisation that installs the App on its Atlassian site is "the Customer". The people who use the Customer's help centre are "portal users". The Customer decides what goes into its Jira site and which items the App shows. Atlassian hosts the site and the App.</p>
+  <ul>
+    <li>For data inside the Customer's Jira site, we act only on the Customer's instructions, given through the App's settings.</li>
+    <li>We decide how support emails sent to us are used.</li>
+  </ul>
 
   <h2>What the App does</h2>
-  <p>It adds a panel to request pages in the Customer's help centre. A Jira administrator chooses, per request type, which of these the panel shows: the assignee's display name, the request's service targets (SLAs), linked requests, and read-only fields the administrator selects. Nothing is shown for a request type until an administrator switches it on.</p>
+  <p>It adds a panel to request pages in the Customer's help centre. For each request type, a Jira administrator chooses what the panel shows: the assignee's display name, the request's service targets (SLAs), linked requests, and read-only fields the administrator selects. Nothing is shown for a request type until an administrator switches it on.</p>
 
-  <h2>What the App reads</h2>
-  <p>The App runs on Atlassian's Forge platform and reads data through Atlassian's own APIs at the moment a panel or the admin page is opened:</p>
+  <h2>Personal data the App handles, and why</h2>
+  <p>The App reads data through Atlassian's APIs only when a request page or the settings page is opened. It uses that data to build that one panel or page, and keeps none of it afterwards (see "Processed, not kept" below).</p>
   <ul>
-    <li>For a request page: first, acting as the viewer, the App asks Jira whether the viewer may see the request, and asks Jira Service Management for the request as the viewer sees it (its key, reporter and request type). If either answer is no, the App reads nothing else and shows nothing. Only then, as the App, it reads the request's assignee, its issue links, its service targets, and only the fields the administrator selected for that request type. If the administrator limited the panel or part of it to certain customer organizations, the App also reads which organizations the viewer belongs to, uses that only to decide what to show, and does not keep it.</li>
-    <li>For the admin page, used only by Jira administrators: the site's service projects, request types, field names and types, issue link types and customer organization names, and whether the current user is a Jira administrator.</li>
+    <li><strong>The viewer's account ID and account type</strong> (for example "customer" or "agent"). Atlassian provides these with each panel load. <em>Why:</em> to ask Jira, as the viewer, whether they may open the request, and to refuse logged-out visitors. They are not sent to the browser.</li>
+    <li><strong>The request as the viewer sees it</strong>, from Jira Service Management: its key, request type and reporter, including the reporter's account ID. <em>Why:</em> to confirm the viewer may see the request before anything else is read. The reporter is not shown in the panel.</li>
+    <li><strong>The assignee's display name</strong>, if the administrator switched it on. <em>Why:</em> to show who is working on the request. Account IDs, email addresses and avatars are dropped on the server and never sent to the browser.</li>
+    <li><strong>Values of the fields the administrator selected.</strong> These can include people's display names (for user-picker fields) or anything that people typed into those fields. <em>Why:</em> to show those fields. Only the selected fields are read.</li>
+    <li><strong>Linked requests</strong> (key, summary, status and link type) and <strong>service targets</strong> (name, state and remaining time), if switched on. <em>Why:</em> to show them.</li>
+    <li><strong>The viewer's customer organizations.</strong> These are read only when the administrator limited the panel, or part of it, to certain organizations. <em>Why:</em> to decide which parts this viewer may see.</li>
+    <li><strong>On the settings page</strong> (Jira administrators only): whether the current user is a Jira administrator, plus the site's service projects, request types, fields, link types and customer organization names. <em>Why:</em> to let an administrator choose what to show.</li>
   </ul>
-  <p>The App never reads comments, worklogs, attachments, time tracking, watchers, votes or security levels, and an administrator cannot switch them on.</p>
+  <p>The App never reads comments, worklogs, attachments, time tracking, watchers, votes or security levels, and an administrator cannot switch them on. Portal users see only what the administrator switched on, and only on requests they can already open.</p>
 
-  <h2>What portal users see</h2>
-  <p>Only what the administrator switched on, and only on requests they can already open. People appear by display name only: the App never shows email addresses, account IDs or avatars, and never sends them to the browser.</p>
+  <h2>Processed, not kept</h2>
+  <p>All of the data above is handled in memory while one panel or the settings page is built. Then it is discarded. The App does not copy, cache or store requests, names, account IDs, organization memberships or field values. Forge may briefly cache a panel's response for up to about five minutes to avoid repeat calls. That cache is held by Atlassian, inside the Customer's site.</p>
 
   <h2>What the App stores</h2>
-  <p>Only the administrator's configuration: for each request type, which items are switched on, which fields and link types are selected, the labels and headings the administrator typed, and the ID numbers of any customer organizations the administrator chose as an audience. It is kept in the App's storage on Atlassian's Forge platform for the Customer's site. It contains no personal data and no request content. The App does not copy, cache or keep requests, comments, names or field values.</p>
+  <p>Only the administrator's settings. For each request type, these are:</p>
+  <ul>
+    <li>which items are switched on</li>
+    <li>which fields and link types are selected</li>
+    <li>the labels and headings the administrator typed</li>
+    <li>the ID numbers of any customer organizations chosen as an audience</li>
+  </ul>
+  <p>The settings are not about any person, and they include no request content. Do not type personal data into labels or headings.</p>
 
   <h2>Logs</h2>
-  <p>To diagnose problems, the App writes short technical log entries to Atlassian's Forge logging service: the event name, the request key and request type, the kind of viewer (for example "customer" or "agent") and whether the viewer check passed, which data source answered, counts of items shown, and timings. Logs never contain field values, summaries, names, email addresses or account IDs. Atlassian keeps these logs under its Forge platform's retention rules; the Developer can read them only for the purpose of support and fixing errors.</p>
-
-  <h2>What the App sends</h2>
-  <p>Nothing outside Atlassian. The App declares no external network access, so it cannot call any server other than Atlassian's own APIs. It has no analytics, tracking, advertising or AI services of its own.</p>
-
-  <h2>What others collect</h2>
+  <p>To find and fix errors, the App writes one short technical entry each time it runs. Entries go to Atlassian's Forge logging service. Each entry holds:</p>
   <ul>
-    <li><strong>Atlassian:</strong> hosts and runs the App, its storage and its logs on the Forge platform, and, once the App is listed, processes installation, billing and Marketplace accounts under its own terms and privacy policy. See <a href="https://www.atlassian.com/legal/privacy-policy" rel="noopener">Atlassian's privacy policy</a>.</li>
-    <li><strong>Email support:</strong> if you write to <a href="mailto:support@creet.in">support@creet.in</a>, we receive your email address and whatever you include, and use it only to answer you. Please do not send request contents or personal data of your customers unless we need them to fix a problem.</li>
+    <li>the event name</li>
+    <li>the request key (for example "HELP-42") and request type ID</li>
+    <li>the viewer's account type and whether the viewer check passed</li>
+    <li>whether organization rules applied</li>
+    <li>which data source answered, with its HTTP status</li>
+    <li>counts of items shown, and timings</li>
+    <li>on an error, the error message, cut to 300 characters</li>
   </ul>
+  <p>A request key does not name anyone. It can be linked to a person by someone who can open that request in the Customer's Jira site, so we treat logs as personal data. Logs never contain field values, summaries, names, email addresses, account IDs or organization names.</p>
+  <p>Atlassian keeps Forge logs for a limited period set by Atlassian, and we keep no copy of our own. We can read logs from the Customer's site only if the Customer's administrator allows log sharing with app developers in Atlassian administration. We use them only to give support and fix errors.</p>
+
+  <h2>Support emails</h2>
+  <p>If you write to <a href="mailto:support@creet.in">support@creet.in</a>, we receive your name, email address and whatever you include, such as your site URL and screenshots. We use it only to answer you and to fix the problem you report.</p>
+  <p>Mail to creet.in is forwarded by our domain provider, Spaceship, to a Google Gmail mailbox. It is therefore processed by those two companies, possibly outside India, under their own privacy policies. Please do not send your customers' request contents or personal data unless we ask for them to fix a problem.</p>
+
+  <h2>Where data is kept</h2>
+  <ul>
+    <li><strong>Settings and logs:</strong> on Atlassian's Forge platform, for the Customer's site, in locations chosen by Atlassian.</li>
+    <li><strong>Data the App reads:</strong> handled only inside Forge while one page is built, as above.</li>
+    <li><strong>Support emails:</strong> in our mailbox, as described above.</li>
+  </ul>
+  <p>We run no servers or databases of our own.</p>
+
+  <h2>Sharing</h2>
+  <p>We do not sell, rent or share personal data. We do not use it for advertising, analytics, profiling or AI training. The App declares no external network access, so it cannot send data to any server other than Atlassian's own APIs. The only other parties involved are:</p>
+  <ul>
+    <li><strong>Atlassian:</strong> hosts and runs the App, its storage and its logs. Atlassian also processes installation, billing and Marketplace accounts under its own terms and <a href="https://www.atlassian.com/legal/privacy-policy" rel="noopener">privacy policy</a>.</li>
+    <li><strong>Spaceship and Google:</strong> carry and store support email, as described above.</li>
+  </ul>
+  <p>We may disclose information if the law requires it, and we will tell the Customer about it where the law allows.</p>
 
   <h2>Retention and deletion</h2>
-  <p>The configuration stays in the App's storage while the App is installed. When the Customer uninstalls the App, Atlassian handles the App's stored data under its retention rules for Forge apps. Support emails are kept for as long as needed to help and are deleted on request.</p>
+  <ul>
+    <li><strong>Data the App reads:</strong> not kept. It is gone once the page is built, or when Forge's short cache expires.</li>
+    <li><strong>Settings:</strong> kept in the App's storage while the App is installed. An administrator can change or clear them at any time. When the Customer uninstalls the App, Atlassian deletes the App's stored data under its rules for Forge apps.</li>
+    <li><strong>Logs:</strong> deleted automatically by Atlassian at the end of its Forge log retention period.</li>
+    <li><strong>Support emails:</strong> kept for up to 24 months after the last message in a conversation, then deleted. We delete them sooner if you ask.</li>
+  </ul>
+
+  <h2>Your rights</h2>
+  <p>Depending on where you live, data protection law may give you rights, such as the GDPR in Europe and the UK or India's Digital Personal Data Protection Act. These can include the right to access, correct or delete personal data, to object to or restrict its use, to receive a copy, and to complain to a data protection authority.</p>
+  <ul>
+    <li><strong>Data in a Jira site,</strong> such as requests, names and field values: the App keeps none of it. Contact the organisation that runs the help centre, which controls that data in Jira.</li>
+    <li><strong>Logs or support emails:</strong> write to <a href="mailto:support@creet.in?subject=Privacy">support@creet.in</a>. We reply within 30 days, and may first ask you to confirm who you are.</li>
+  </ul>
+
+  <h2>Security</h2>
+  <p>How we protect the App and how to report a problem are described in our <a href="security.html">security policy</a>.</p>
 
   <h2>Children</h2>
   <p>The App is a business tool for Jira Service Management and is not directed at children.</p>
 
   <h2>Changes</h2>
-  <p>If a future version of the App needs to store or send any personal data, this page will say so with a new date before that version is released.</p>
+  <p>We update this page, with a new date, before releasing any version of the App that handles personal data differently.</p>
 
-  <h2>Contact</h2>
-  <p>Developer: Rishabh Chulet (Creet)<br>
-  Address: Madhya Pradesh, India<br>
-  Email: <a href="mailto:support@creet.in">support@creet.in</a></p>
+  <h2>Privacy contact</h2>
+  <p>Rishabh Chulet (Creet)<br>
+  Madhya Pradesh, India<br>
+  Email: <a href="mailto:support@creet.in?subject=Privacy">support@creet.in</a> (put "Privacy" in the subject)</p>
 
 </article>
 </main>
@@ -96,6 +151,7 @@
       <a href="help.html">Help</a>
       <a href="terms.html">Terms</a>
       <a href="privacy.html">Privacy</a>
+      <a href="security.html">Security</a>
       <a href="mailto:support@creet.in">support@creet.in</a>
     </nav>
   </div>
